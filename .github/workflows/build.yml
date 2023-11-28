@@ -28,5 +28,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: ZIP dependencies layers
         run: |
-          cd env/lib/python3.7/site-packages
+          cd venv/lib/python3.11/site-packages/
           zip -r9 $ {{ github.workspace }}/function.zip
