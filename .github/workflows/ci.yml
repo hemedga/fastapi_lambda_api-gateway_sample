@@ -1,5 +1,4 @@
-name: Python application
-
+name: Python CI
 on:
   push:
     branches: [ "main" ]
