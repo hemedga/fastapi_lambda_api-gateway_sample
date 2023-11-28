@@ -1,6 +1,6 @@
 # Build Lambda ZIP for s3 (saves the file as function.zip)
 
-name: Build
+name: Python Build
 on:
   workflow_dispatch:
 
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set up Python 
-        uses: actions/setup-python@v3        
+        uses: actions/setup-python@v4        
       - name: create and activate venv
         run: |
           python -m venv venv
@@ -26,7 +26,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip          
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: tbd
+      - name: ZIP dependencies layers
         run: |
-          # tbd
-          
+          cd env/lib/python3.7/site-packages
+          zip -r9 $ {{ github.workspace }}/function.zip
