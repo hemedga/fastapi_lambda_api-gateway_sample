@@ -15,21 +15,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Set up Python 
         uses: actions/setup-python@v4        
-      - name: create and activate venv
-        run: |
-          python -m venv venv
-          source venv/bin/activate
       
-      - name: Install dependencies
+      - name: Python command
         run: |
+          python -m venv env
+          source venv/bin/activate
           python -m pip install --upgrade pip          
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          echo "VIRTUAL ENV:" $VIRTUAL_ENV
      
       - name: ZIP dependencies layers
         run: |
-          cd venv/lib/python3.11/site-packages/
+          cd $VIRTUAL_ENV/lib/python3.11/site-packages/
           zip -r9 ${{ github.workspace }}/function.zip .
       
       - name: ZIP app
