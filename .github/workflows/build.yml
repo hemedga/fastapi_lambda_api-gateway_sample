@@ -30,7 +30,7 @@ jobs:
      
       - name: ZIP dependencies layers
         run: |
-          cd $VIRTUAL_ENV/lib/python3.11/site-packages/
+          cd env/lib/python3.11/site-packages/
           zip -r9 ${{ github.workspace }}/function.zip .
       
       - name: ZIP app
