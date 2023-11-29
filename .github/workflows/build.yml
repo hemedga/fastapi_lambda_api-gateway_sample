@@ -41,5 +41,5 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Lambda function package
+          name: function
           path: ${{ github.workspace }}/function.zip
