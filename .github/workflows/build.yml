@@ -33,7 +33,7 @@ jobs:
           cd env/lib/python3.11/site-packages/
           zip -r9 ${{ github.workspace }}/function.zip .
           cd ${{ github.workspace }}
-          zip -g ./function.zip -r /app
+          zip -g ./function.zip -r app
                  
                   
       - name: Upload build artifact
